@@ -1,0 +1,47 @@
+/* Vice Nights — a dark neon editor around a bright cover. */
+:root {
+  --ink: #f4eef7;
+  --muted: #b9a8c4;
+  --panel: #1c1026;
+  --panel-2: #261634;
+  --line: #3d2a52;
+  --accent: #ff2e88;
+  --accent-2: #ffb347;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; background: #120a1c; color: var(--ink); font: 15px/1.45 system-ui, sans-serif; }
+.top { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; padding: 20px 28px 8px; }
+.top h1 { margin: 0; font-size: 34px; letter-spacing: 0.02em; background: linear-gradient(90deg, #ffb347, #ff2e88 55%, #7b5cff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.top p { margin: 4px 0 0; color: var(--muted); max-width: 560px; }
+.top .hint { color: var(--accent-2); font-weight: 600; }
+.app { display: flex; gap: 24px; padding: 12px 28px 28px; align-items: flex-start; }
+.controls { width: 360px; flex: none; display: flex; flex-direction: column; gap: 16px; }
+.group { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+.group h2 { margin: 0 0 10px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent-2); }
+.row { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip, button { font: inherit; color: var(--ink); background: var(--panel-2); border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; cursor: pointer; }
+.chip.on, button:hover { border-color: var(--accent); background: #341a4a; }
+.chip.on { box-shadow: 0 0 0 1px var(--accent), 0 0 14px rgba(255, 46, 136, 0.35); }
+label { display: flex; flex-direction: column; gap: 6px; font-weight: 600; margin-bottom: 8px; }
+label:last-child { margin-bottom: 0; }
+input[type=text] { font: inherit; padding: 9px 10px; border: 1px solid var(--line); border-radius: 8px; background: #0f0817; color: var(--ink); }
+input[type=range] { width: 100%; accent-color: var(--accent); }
+.upload { flex-direction: row; align-items: center; gap: 8px; }
+.upload input { display: none; }
+.upload, #cycle, #fill-all { font: inherit; font-weight: 600; color: var(--ink); background: var(--panel-2); border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; cursor: pointer; margin: 0; }
+.slots { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 10px; }
+.slot { position: relative; height: 74px; padding: 0; overflow: hidden; border-radius: 8px; }
+.slot img { width: 100%; height: 100%; object-fit: cover; display: none; }
+.slot .slot-num { position: absolute; top: 4px; left: 6px; z-index: 2; font-weight: 800; font-size: 13px; text-shadow: 0 1px 4px #000; }
+.slot .slot-empty { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 12px; }
+.slot.active { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent); }
+.export { font-weight: 700; }
+#status { margin: 8px 0 0; color: var(--muted); min-height: 1.2em; }
+.stage-wrap { flex: 1; display: flex; justify-content: center; }
+#stage { width: min(72vh, 100%); height: auto; aspect-ratio: 1; background: #241530; border-radius: 6px; box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55); cursor: grab; }
+#stage:active { cursor: grabbing; }
+body.shot-cover { background: #000; }
+body.shot-cover .top, body.shot-cover .controls { display: none; }
+body.shot-cover .app { padding: 0; }
+body.shot-cover .stage-wrap { display: block; }
+body.shot-cover #stage { width: 100vw; height: 100vh; aspect-ratio: auto; border-radius: 0; box-shadow: none; }

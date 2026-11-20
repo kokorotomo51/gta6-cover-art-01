@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vice Nights — GTA-style cover studio</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="top">
+  <div>
+    <h1>Vice Nights</h1>
+    <p>Turn your photos and a caption into GTA-style cover art. Everything runs on your machine — no uploads, no network.</p>
+  </div>
+  <p class="hint">Click a panel to select it, then drag the photo to reframe it.</p>
+</header>
+<main class="app">
+  <section class="controls" aria-label="Cover controls">
+    <div class="group">
+      <h2>1 · Layout</h2>
+      <div class="row" id="layouts"></div>
+    </div>
+    <div class="group">
+      <h2>2 · Neon grade</h2>
+      <div class="row" id="grades"></div>
+    </div>
+    <div class="group">
+      <h2>3 · Caption</h2>
+      <label>Title <input id="title" type="text" maxlength="28" value="Sunset Heist"></label>
+      <label>Subtitle <input id="subtitle" type="text" maxlength="32" value="Vice City"></label>
+    </div>
+    <div class="group">
+      <h2>4 · Photos</h2>
+      <div class="slots" id="slots"></div>
+      <div class="row">
+        <label class="upload">Upload photo <input id="upload" type="file" accept="image/*"></label>
+        <button id="cycle" type="button">Try a sample</button>
+        <button id="fill-all" type="button">One photo everywhere</button>
+      </div>
+    </div>
+    <div class="group">
+      <h2>5 · Reframe the selected panel</h2>
+      <label>Zoom <input id="zoom" type="range" min="1" max="3" step="0.05" value="1"></label>
+      <label>Pan left–right <input id="panx" type="range" min="-1" max="1" step="0.05" value="0"></label>
+      <label>Pan up–down <input id="pany" type="range" min="-1" max="1" step="0.05" value="0"></label>
+    </div>
+    <div class="group">
+      <h2>6 · Export PNG</h2>
+      <div class="row" id="exports"></div>
+      <p id="status" role="status"></p>
+    </div>
+  </section>
+  <section class="stage-wrap" aria-label="Cover preview">
+    <canvas id="stage" width="1000" height="1000"></canvas>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
